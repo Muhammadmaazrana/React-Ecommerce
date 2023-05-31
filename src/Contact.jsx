@@ -14,13 +14,13 @@ function Contact() {
       </iframe>
       <div className="container contact-form my-3">
       <form action="https://formspree.io/f/mknaavdd" method='POST'>
-  <input type="text" class="form-control" name='user' id="exampleFormControlInput1" placeholder="Enter User Name"/>
+  <input type="text" className="form-control" name='user' id="exampleFormControlInput1" placeholder="Enter User Name"/>
 
     <br />
-  <input type="email" class="form-control" name='email' id="exampleFormControlInput1" placeholder="Enter your Email"/>
+  <input type="email" className="form-control" name='email' id="exampleFormControlInput1" placeholder="Enter your Email"/>
 <br />
-  <textarea class="form-control" name='message' id="exampleFormControlTextarea1" rows="3"></textarea><br />
-<button type="submit" class="btn btn-primary">Submit</button></form></div>
+  <textarea className="form-control" name='message' id="exampleFormControlTextarea1" rows="3"></textarea><br />
+<button type="submit" className="btn btn-primary">Submit</button></form></div>
 
     
 
