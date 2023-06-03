@@ -1,12 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import FormatPrice from './Helper/FormatPrice';
 const Product = (curElem) => {
     const {id,name,image,price,category}=curElem;
   return (
     
       <NavLink to={`/singleproduct/${id}`}>
         <div className="container">
-            {/* <div className="card1"> */}
 <div className="card" style={{width: "18rem"}}>
     <figure>
   <img src={image} className="card-img-top" alt={name}/>
@@ -16,11 +16,10 @@ const Product = (curElem) => {
 <div className="card-data-flex">
     <h3>{name}</h3>
     <p className="card-data-price">
-      {`Rs:${price}`} 
+      < FormatPrice price={price}/> 
     </p>
 </div></div></div>
   </div>
-{/* </div> */}
       </NavLink>
 
   )

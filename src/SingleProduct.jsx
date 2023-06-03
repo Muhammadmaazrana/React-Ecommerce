@@ -1,24 +1,87 @@
-import React from 'react'
+// import React from 'react'
 
-function SingleProduct() {
-  return (
-    <div>
-      <h1>single product</h1>
-    </div>
-  )
+// function SingleProduct() {
+//   return (
+//     <div>
+//       <h1>single product</h1>
+//     </div>
+//   )
+// }
+
+// export default SingleProduct
+
+
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useProductContext } from "./context/ProductContext";
+import PageNavigation from "./PageNavigation";
+import MyImage from "./MyImage";
+import FormatPrice from "./Helper/FormatPrice";
+
+const API = "https://api.pujakaitem.com/api/products"
+
+const SingleProduct = () => {
+  const { getSingleproduct, isSingleLoading, singleProduct } = useProductContext();
+  const{
+    id:alias,
+    name,
+    company,
+    description,
+    category,
+    stock,
+    reviews,
+    stars,
+    image,
+    price,
+  }=singleProduct;
+  const { id } = useParams();
+  useEffect(() => {
+    getSingleproduct(`${API}?id=${id}`);
+  }, []);
+if(isSingleLoading){
+  return <h1>Loading.......</h1>
 }
 
-export default SingleProduct
+  console.log(id)
+  return (
+     <div>
+   <PageNavigation title={name}/>
+  <div className="container my-5">
+  <div className="row">
+    <div className="main-sec">
+<div className="imageSec col-6">
+  <MyImage imgs={image} />
+</div>
+<div className="product-data col-6">
+<h2>{name}</h2>
+<p>{stars}</p>
+<p>{reviews} reviews</p>
+<p className="product-data-price">
+  MRP: <del>
+    <FormatPrice price={price + 250000}/>
+  </del>
+</p>
+<p className="product-data-price product-data-real-price">
+   Deal of the Day:
+    <FormatPrice price={price}/>
+</p>
+<div>{description}</div><br />
+<div className='stock'>Availabe: <b>{stock>0?"In Stock":"Not Available"}</b></div>
+<div className="id">
+  ID: <b>{id}</b>
+</div>
+<div className="company">
+  Company:<b> {company}</b>
+</div>
+<div className="category">
+category:<b> {category}</b>
+</div>
+</div></div>
 
 
-
-// import styled from "styled-components";
-
-// const SingleProduct = () => {
-
-//   return <Wrapper></Wrapper>;
-
-// };
+  </div></div></div>
+  )
+};
 
 
 // const Wrapper = styled.section`
@@ -94,4 +157,4 @@ export default SingleProduct
 //   }
 // `;
 
-// export default SingleProduct;
+export default SingleProduct;

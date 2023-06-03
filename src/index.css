@@ -117,3 +117,14 @@ padding-top: 10px;
   color:grey;
   
 }
+.home{
+  color:black;
+  text-decoration: none;
+}
+.main-sec{
+  display: flex;
+  justify-content: space-around;
+}
+.product-data-real-price{
+  color: blue;
+}
