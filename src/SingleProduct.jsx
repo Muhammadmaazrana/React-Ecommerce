@@ -39,7 +39,7 @@ const SingleProduct = () => {
     getSingleproduct(`${API}?id=${id}`);
   }, []);
 if(isSingleLoading){
-  return <h1>Loading.......</h1>
+  return <h1>Loading........</h1>
 }
 
   console.log(id)
